@@ -10,3 +10,11 @@ package-lock.json
 /target/
 /.build/
 test.prql
+
+# Generated files (will be created by tree-sitter generate)
+src/parser.c
+src/node-types.json
+src/grammar.json
+
+# Pre-built binaries
+prebuilds/
