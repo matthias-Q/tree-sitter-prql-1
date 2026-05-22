@@ -804,6 +804,51 @@
         ]
       }
     },
+    "_transform": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "derives"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sorts"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "takes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "joins"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "select"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "aggregate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "group"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "append"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "loop"
+        }
+      ]
+    },
     "from": {
       "type": "SEQ",
       "members": [
@@ -3973,10 +4018,6 @@
     "bang": {
       "type": "STRING",
       "value": "!"
-    },
-    "pipe": {
-      "type": "STRING",
-      "value": "|"
     }
   },
   "extras": [

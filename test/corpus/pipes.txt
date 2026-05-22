@@ -11,7 +11,6 @@ from employees | filter department == "Product" | select {first_name, last_name}
     (from
       (keyword_from)
       (identifier))
-    (pipe)
     (transforms
       (filter
         (keyword_filter)
@@ -20,7 +19,6 @@ from employees | filter department == "Product" | select {first_name, last_name}
             (identifier))
           (literal
             (literal_string))))
-      (pipe)
       (select
         (keyword_select)
         (term
@@ -39,6 +37,7 @@ from students
 derive {
   sat_proportion_1 = (sat_score | interp 1600),
   sat_proportion_2 = (sat_score | interp lower:0 1600),
+  sat_proportion_3 = (sat_score | interp 1600),
 }
 --------------------------------------------------------------------------------
 
@@ -78,7 +77,6 @@ derive {
               (identifier))
             (function_call
               (identifier)
-              (pipe)
               (parameter
                 (identifier))
               (parameter
@@ -90,13 +88,23 @@ derive {
               (identifier))
             (function_call
               (identifier)
-              (pipe)
               (parameter
                 (identifier))
               (parameter
                 (identifier)
                 (literal
                   (integer)))
+              (parameter
+                (literal
+                  (integer))))))
+        (term
+          (assignment
+            (field
+              (identifier))
+            (function_call
+              (identifier)
+              (parameter
+                (identifier))
               (parameter
                 (literal
                   (integer))))))))))

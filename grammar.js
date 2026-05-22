@@ -240,6 +240,19 @@ module.exports = grammar({
       ),
     ),
 
+    _transform: $ => choice(
+      $.derives,
+      $.sorts,
+      $.takes,
+      $.joins,
+      $.filter,
+      $.select,
+      $.aggregate,
+      $.group,
+      $.append,
+      $.loop,
+    ),
+
     from: $ => seq(
       $.keyword_from,
       $._table_selection,
@@ -791,7 +804,6 @@ module.exports = grammar({
     comment: _ => seq('#', /.*/),
 
     bang: _ => '!',
-    pipe: _ => '|',
 
   },
 });
