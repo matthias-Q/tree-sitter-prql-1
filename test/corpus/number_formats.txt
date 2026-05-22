@@ -1,0 +1,197 @@
+================================================================================
+Hexadecimal numbers
+================================================================================
+
+from employees
+derive hex_value = 0xFF
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (hexadecimal))))))))
+
+================================================================================
+Octal numbers
+================================================================================
+
+from files
+derive permissions = 0o755
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (octal))))))))
+
+================================================================================
+Binary numbers
+================================================================================
+
+from data
+derive flags = 0b1010
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (binary))))))))
+
+================================================================================
+Scientific notation - integer with exponent
+================================================================================
+
+from planets
+derive distance = 5e9
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (scientific_number))))))))
+
+================================================================================
+Scientific notation - decimal with positive exponent
+================================================================================
+
+from measurements
+derive value = 1.23e+4
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (scientific_number))))))))
+
+================================================================================
+Scientific notation - decimal with negative exponent
+================================================================================
+
+from atoms
+derive mass = 9.109e-31
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (scientific_number))))))))
+
+================================================================================
+Scientific notation - uppercase E
+================================================================================
+
+from chemistry
+derive constant = 6.022E23
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (literal
+              (scientific_number))))))))
+
+================================================================================
+Mixed number formats in calculations
+================================================================================
+
+from data
+derive result = 0xFF + 5e3 - 0b1010
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (binary_expression
+                (literal
+                  (hexadecimal))
+                (literal
+                  (scientific_number)))
+              (literal
+                (binary)))))))))

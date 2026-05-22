@@ -490,8 +490,12 @@ module.exports = grammar({
 
     literal: $ => prec(2,
       choice(
-        $.integer,
+        $.hexadecimal,
+        $.octal,
+        $.binary,
+        $.scientific_number,
         $.decimal_number,
+        $.integer,
         $.literal_string,
         $.keyword_true,
         $.keyword_false,
@@ -529,7 +533,27 @@ module.exports = grammar({
 
     _natural_number: _ => /\d+/,
     _friendly_number: $ => repeat1(choice($._natural_number, '_')),
+    
+    // Hexadecimal literals (0x80, 0xFF, etc.)
+    hexadecimal: _ => token(seq(
+      '0x',
+      /[0-9a-fA-F]+/
+    )),
+    
+    // Octal literals (0o777, 0o644, etc.)
+    octal: _ => token(seq(
+      '0o',
+      /[0-7]+/
+    )),
+    
+    // Binary literals (0b0011, 0b1010, etc.)
+    binary: _ => token(seq(
+      '0b',
+      /[01]+/
+    )),
+    
     integer: $ => prec.left(seq(optional("-"), $._friendly_number)),
+    
     decimal_number: $ => prec.left(
       choice(
         seq(optional("-"), ".", $._natural_number),
@@ -537,6 +561,19 @@ module.exports = grammar({
         seq($.integer, "."),
       ),
     ),
+    
+    // Scientific notation (5e9, 1.23e-4, 2.5E+10, etc.)
+    scientific_number: $ => token(seq(
+      optional('-'),
+      choice(
+        // Integer part with exponent: 5e9
+        seq(/\d+/, /[eE]/, optional(/[+-]/), /\d+/),
+        // Decimal part with exponent: 1.23e-4
+        seq(/\d+/, '.', /\d+/, /[eE]/, optional(/[+-]/), /\d+/),
+        // Decimal starting with dot: .5e2
+        seq('.', /\d+/, /[eE]/, optional(/[+-]/), /\d+/),
+      )
+    )),
 
     field: $ => prec(2,
       seq(

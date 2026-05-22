@@ -960,7 +960,15 @@
       "required": false,
       "types": [
         {
+          "type": "binary",
+          "named": true
+        },
+        {
           "type": "decimal_number",
+          "named": true
+        },
+        {
+          "type": "hexadecimal",
           "named": true
         },
         {
@@ -981,6 +989,14 @@
         },
         {
           "type": "literal_string",
+          "named": true
+        },
+        {
+          "type": "octal",
+          "named": true
+        },
+        {
+          "type": "scientific_number",
           "named": true
         }
       ]
@@ -1754,12 +1770,20 @@
     "named": false
   },
   {
+    "type": "binary",
+    "named": true
+  },
+  {
     "type": "f\"",
     "named": false
   },
   {
     "type": "f\"\"\"",
     "named": false
+  },
+  {
+    "type": "hexadecimal",
+    "named": true
   },
   {
     "type": "keyword_aggregate",
@@ -1934,12 +1958,20 @@
     "named": true
   },
   {
+    "type": "octal",
+    "named": true
+  },
+  {
     "type": "s\"",
     "named": false
   },
   {
     "type": "s\"\"\"",
     "named": false
+  },
+  {
+    "type": "scientific_number",
+    "named": true
   },
   {
     "type": "sql.ansi",
