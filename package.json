@@ -1,24 +1,53 @@
 {
   "name": "tree-sitter-prql",
-  "version": "0.9.2",
-  "description": "A treesitter grammar for PRQL",
-  "main": "grammar.js",
+  "version": "1.0.0",
+  "description": "A tree-sitter grammar for PRQL",
+  "main": "bindings/node",
+  "types": "bindings/node/index.d.ts",
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "prql",
+    "incremental"
+  ],
   "scripts": {
+    "build": "tree-sitter generate && node-gyp rebuild",
+    "build:wasm": "tree-sitter build --wasm",
     "test": "tree-sitter test",
-    "install": "tree-sitter generate && node-gyp rebuild"
+    "parse": "tree-sitter parse",
+    "prebuildify": "prebuildify --napi --strip",
+    "prepublishOnly": "npm run build && npm test"
   },
   "author": "Matthias Queitsch",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.17.0"
+    "node-addon-api": "^8.0.0",
+    "node-gyp-build": "^4.8.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.0"
+    "tree-sitter-cli": "^0.26.9",
+    "prebuildify": "^6.0.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
   },
   "gypfile": true,
   "directories": {
     "test": "test"
   },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "bindings/node/*",
+    "queries/*",
+    "src/*.json",
+    "src/tree_sitter/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthias-Q/tree-sitter-prql.git"
@@ -26,5 +55,15 @@
   "bugs": {
     "url": "https://github.com/matthias-Q/tree-sitter-prql/issues"
   },
-  "homepage": "https://github.com/matthias-Q/tree-sitter-prql#readme"
+  "homepage": "https://github.com/matthias-Q/tree-sitter-prql#readme",
+  "tree-sitter": [
+    {
+      "scope": "source.prql",
+      "file-types": [
+        "prql"
+      ],
+      "injection-regex": "prql",
+      "highlights": "queries/highlights.scm"
+    }
+  ]
 }

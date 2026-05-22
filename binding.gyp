@@ -2,17 +2,25 @@
   "targets": [
     {
       "target_name": "tree_sitter_prql_binding",
+      "dependencies": [
+        "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except"
+      ],
       "include_dirs": [
-        "<!(node -e \"require('nan')\")",
         "src"
       ],
       "sources": [
         "bindings/node/binding.cc",
-        "src/parser.c",
-        # If your language uses an external scanner, add it here.
+        "src/parser.c"
       ],
       "cflags_c": [
-        "-std=c99",
+        "-std=c11"
+      ],
+      "conditions": [
+        ["OS=='win'", {
+          "cflags_c": [
+            "/std:c11"
+          ]
+        }]
       ]
     }
   ]
