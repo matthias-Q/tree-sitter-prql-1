@@ -1,26 +1,37 @@
 [package]
 name = "tree-sitter-prql"
-description = "prql grammar for the tree-sitter parsing library"
-version = "0.9.2"
-keywords = ["incremental", "parsing", "prql"]
+description = "PRQL grammar for the tree-sitter parsing library"
+version = "1.0.0"
+keywords = ["incremental", "parsing", "prql", "tree-sitter"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/matthias-Q/tree-sitter-prql"
-edition = "2018"
+edition = "2021"
+rust-version = "1.74"
 license = "MIT"
+readme = "README.md"
+authors = ["Matthias Queitsch"]
 
 build = "bindings/rust/build.rs"
 include = [
   "bindings/rust/*",
   "grammar.js",
+  "grammar/*",
   "queries/*",
   "src/*",
+  "LICENSE",
+  "README.md",
 ]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "~0.20"
+tree-sitter = "~0.24"
+tree-sitter-language = "~0.1"
 
 [build-dependencies]
 cc = "1.0"
+
+[features]
+default = []
+queries = []
