@@ -1,0 +1,157 @@
+================================================================================
+In with integer range
+================================================================================
+
+from track_points
+filter (magnitude | in 50..100)
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (in_expression
+          (field
+            (identifier))
+          (keyword_in)
+          (range
+            (integer)
+            (integer)))))))
+
+================================================================================
+In with open range
+================================================================================
+
+from locations
+filter (latitude | in 0..)
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (in_expression
+          (field
+            (identifier))
+          (keyword_in)
+          (range
+            (integer)))))))
+
+================================================================================
+In with date range
+================================================================================
+
+from events
+filter (created_at | in @1776-07-04..@1787-09-17)
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (in_expression
+          (field
+            (identifier))
+          (keyword_in)
+          (range
+            (date)
+            (date)))))))
+
+================================================================================
+In with list
+================================================================================
+
+from users
+filter (status | in ["active", "pending"])
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (in_expression
+          (field
+            (identifier))
+          (keyword_in)
+          (list
+            (literal
+              (literal_string))
+            (literal
+              (literal_string))))))))
+
+================================================================================
+In with list and negation
+================================================================================
+
+from users
+filter !(status | in ["banned", "deleted"])
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (unary_expression
+          (in_expression
+            (field
+              (identifier))
+            (keyword_in)
+            (list
+              (literal
+                (literal_string))
+              (literal
+                (literal_string)))))))))
+
+================================================================================
+In with list of numbers
+================================================================================
+
+from orders
+filter (quantity | in [1, 2, 3])
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (in_expression
+          (field
+            (identifier))
+          (keyword_in)
+          (list
+            (literal
+              (integer))
+            (literal
+              (integer))
+            (literal
+              (integer))))))))

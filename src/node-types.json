@@ -51,6 +51,10 @@
           "named": true
         },
         {
+          "type": "in_expression",
+          "named": true
+        },
+        {
           "type": "keyword_average",
           "named": true
         },
@@ -87,7 +91,15 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "range",
           "named": true
         },
         {
@@ -186,7 +198,19 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -236,6 +260,10 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
             "type": "keyword_average",
             "named": true
           },
@@ -264,7 +292,15 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -343,7 +379,19 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -467,7 +515,19 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -686,7 +746,19 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -897,6 +969,106 @@
     "fields": {}
   },
   {
+    "type": "in_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "date",
+            "named": true
+          },
+          {
+            "type": "f_string",
+            "named": true
+          },
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "s_string",
+            "named": true
+          },
+          {
+            "type": "time",
+            "named": true
+          },
+          {
+            "type": "timestamp",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword_in",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "integer",
     "named": true,
     "fields": {}
@@ -946,6 +1118,65 @@
         },
         {
           "type": "keyword_side",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "f_string",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "in_expression",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "s_string",
+          "named": true
+        },
+        {
+          "type": "time",
+          "named": true
+        },
+        {
+          "type": "timestamp",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
           "named": true
         }
       ]
@@ -1197,7 +1428,7 @@
     "fields": {
       "from": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "date",
@@ -1221,7 +1452,7 @@
       },
       "till": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "date",
@@ -1371,7 +1602,19 @@
             "named": true
           },
           {
+            "type": "in_expression",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "range",
             "named": true
           },
           {
@@ -1519,7 +1762,19 @@
           "named": true
         },
         {
+          "type": "in_expression",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "range",
           "named": true
         },
         {
@@ -1766,6 +2021,14 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "_",
     "named": false
   },
@@ -1859,6 +2122,10 @@
   },
   {
     "type": "keyword_group",
+    "named": true
+  },
+  {
+    "type": "keyword_in",
     "named": true
   },
   {

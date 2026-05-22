@@ -471,6 +471,9 @@ module.exports = grammar({
 
     _expression: $ => prec(2,prec.left(
       choice(
+        $.in_expression,
+        $.range,
+        $.list,
         $.field,
         $.f_string,
         $.s_string,
@@ -488,6 +491,17 @@ module.exports = grammar({
       prec('unary', seq('!', $._expression)),
     ),
 
+    in_expression: $ => prec.left('binary_relation', seq(
+      field('left', $._expression),
+      field('operator', $.keyword_in),
+      field('right', choice(
+        $.range,
+        $.list,
+        $.date,
+        $.literal,
+      )),
+    )),
+
     literal: $ => prec(2,
       choice(
         $.duration,
@@ -502,6 +516,12 @@ module.exports = grammar({
         $.keyword_false,
         $.keyword_null,
       ),
+    ),
+
+    list: $ => seq(
+      '[',
+      comma_list($._expression, false),
+      ']',
     ),
 
     f_string: $ => choice(
@@ -622,14 +642,9 @@ module.exports = grammar({
     ].map(([operator, range_prec]) =>
         prec.left(range_prec, choice(
           seq(
-            field('from', $.integer),
+            field('from', optional(choice($.integer, $.date))),
             field('operator', operator),
-            field('till', $.integer),
-          ),
-          seq(
-            field('from', $.date),
-            field('operator', operator),
-            field('till', $.date),
+            field('till', optional(choice($.integer, $.date))),
           ),
         ))
       ),
