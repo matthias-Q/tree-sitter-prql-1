@@ -101,6 +101,10 @@
         {
           "type": "timestamp",
           "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
         }
       ]
     }
@@ -196,6 +200,10 @@
           {
             "type": "timestamp",
             "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
           }
         ]
       },
@@ -270,6 +278,10 @@
           {
             "type": "timestamp",
             "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
           }
         ]
       },
@@ -292,6 +304,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "bang",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "binary_expression",
@@ -340,6 +357,10 @@
           {
             "type": "timestamp",
             "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
           }
         ]
       },
@@ -352,11 +373,19 @@
             "named": false
           },
           {
+            "type": "%",
+            "named": false
+          },
+          {
             "type": "&&",
             "named": false
           },
           {
             "type": "*",
+            "named": false
+          },
+          {
+            "type": "**",
             "named": false
           },
           {
@@ -451,6 +480,10 @@
           },
           {
             "type": "timestamp",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
             "named": true
           }
         ]
@@ -666,6 +699,10 @@
           },
           {
             "type": "timestamp",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
             "named": true
           }
         ]
@@ -1328,6 +1365,10 @@
           {
             "type": "timestamp",
             "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
           }
         ]
       }
@@ -1434,6 +1475,53 @@
     }
   },
   {
+    "type": "unary_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "f_string",
+          "named": true
+        },
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "s_string",
+          "named": true
+        },
+        {
+          "type": "time",
+          "named": true
+        },
+        {
+          "type": "timestamp",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable",
     "named": true,
     "fields": {
@@ -1530,6 +1618,10 @@
     }
   },
   {
+    "type": "!",
+    "named": false
+  },
+  {
     "type": "!=",
     "named": false
   },
@@ -1543,6 +1635,10 @@
   },
   {
     "type": "#",
+    "named": false
+  },
+  {
+    "type": "%",
     "named": false
   },
   {
@@ -1563,6 +1659,10 @@
   },
   {
     "type": "*",
+    "named": false
+  },
+  {
+    "type": "**",
     "named": false
   },
   {
@@ -1652,10 +1752,6 @@
   {
     "type": "`",
     "named": false
-  },
-  {
-    "type": "bang",
-    "named": true
   },
   {
     "type": "f\"",

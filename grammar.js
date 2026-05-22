@@ -9,6 +9,9 @@ module.exports = grammar({
   ],
   precedences: $ => [
     [
+      'unary',
+      'binary_pow',
+      'binary_mod',
       'binary_plus',
       'binary_minus',
       'binary_times',
@@ -475,10 +478,15 @@ module.exports = grammar({
         $.time,
         $.timestamp,
         $.binary_expression,
-        parens($.binary_expression),
+        $.unary_expression,
+        parens($._expression),
         $.literal,
       ),
     )),
+
+    unary_expression: $ => choice(
+      prec('unary', seq('!', $._expression)),
+    ),
 
     literal: $ => prec(2,
       choice(
@@ -602,7 +610,15 @@ module.exports = grammar({
         ))),
 
     binary_expression: $ => choice(
+      // Power operator - right associative
+      prec.right('binary_pow', seq(
+        field('left', $._expression),
+        field('operator', '**'),
+        field('right', $._expression)
+      )),
+      // Other operators - left associative
       ...[
+        ['%', 'binary_mod'],
         ['+', 'binary_plus'],
         ['-', 'binary_minus'],
         ['*', 'binary_times'],

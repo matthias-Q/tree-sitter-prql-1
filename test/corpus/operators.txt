@@ -1,0 +1,119 @@
+================================================================================
+Power operator
+================================================================================
+
+from values
+derive {
+  area = (diameter / 2) ** 2,
+  cube = x ** 3,
+}
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (binary_expression
+                (field
+                  (identifier))
+                (literal
+                  (integer)))
+              (literal
+                (integer)))))
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (integer)))))))))
+
+================================================================================
+Modulo operator
+================================================================================
+
+from numbers
+derive remainder = value % 10
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (integer)))))))))
+
+================================================================================
+Negation operator
+================================================================================
+
+from users
+filter !is_active
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (unary_expression
+          (field
+            (identifier)))))))
+
+================================================================================
+Negation with parentheses
+================================================================================
+
+from users
+filter !(age > 18 && country == "US")
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (filter
+        (keyword_filter)
+        (unary_expression
+          (binary_expression
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (integer)))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (literal_string)))))))))
