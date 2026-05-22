@@ -2122,6 +2122,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "duration"
+          },
+          {
+            "type": "SYMBOL",
             "name": "hexadecimal"
           },
           {
@@ -2612,6 +2616,103 @@
                     "value": "\\d+"
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "duration": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "\\d+"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "microseconds"
+              },
+              {
+                "type": "STRING",
+                "value": "microsecond"
+              },
+              {
+                "type": "STRING",
+                "value": "milliseconds"
+              },
+              {
+                "type": "STRING",
+                "value": "millisecond"
+              },
+              {
+                "type": "STRING",
+                "value": "seconds"
+              },
+              {
+                "type": "STRING",
+                "value": "second"
+              },
+              {
+                "type": "STRING",
+                "value": "minutes"
+              },
+              {
+                "type": "STRING",
+                "value": "minute"
+              },
+              {
+                "type": "STRING",
+                "value": "hours"
+              },
+              {
+                "type": "STRING",
+                "value": "hour"
+              },
+              {
+                "type": "STRING",
+                "value": "days"
+              },
+              {
+                "type": "STRING",
+                "value": "day"
+              },
+              {
+                "type": "STRING",
+                "value": "weeks"
+              },
+              {
+                "type": "STRING",
+                "value": "week"
+              },
+              {
+                "type": "STRING",
+                "value": "months"
+              },
+              {
+                "type": "STRING",
+                "value": "month"
+              },
+              {
+                "type": "STRING",
+                "value": "quarters"
+              },
+              {
+                "type": "STRING",
+                "value": "quarter"
+              },
+              {
+                "type": "STRING",
+                "value": "years"
+              },
+              {
+                "type": "STRING",
+                "value": "year"
               }
             ]
           }

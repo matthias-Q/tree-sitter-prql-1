@@ -490,6 +490,7 @@ module.exports = grammar({
 
     literal: $ => prec(2,
       choice(
+        $.duration,
         $.hexadecimal,
         $.octal,
         $.binary,
@@ -572,6 +573,22 @@ module.exports = grammar({
         seq(/\d+/, '.', /\d+/, /[eE]/, optional(/[+-]/), /\d+/),
         // Decimal starting with dot: .5e2
         seq('.', /\d+/, /[eE]/, optional(/[+-]/), /\d+/),
+      )
+    )),
+
+    duration: _ => token(seq(
+      /\d+/,
+      choice(
+        'microseconds', 'microsecond',
+        'milliseconds', 'millisecond',
+        'seconds', 'second',
+        'minutes', 'minute',
+        'hours', 'hour',
+        'days', 'day',
+        'weeks', 'week',
+        'months', 'month',
+        'quarters', 'quarter',
+        'years', 'year',
       )
     )),
 

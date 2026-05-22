@@ -968,6 +968,10 @@
           "named": true
         },
         {
+          "type": "duration",
+          "named": true
+        },
+        {
           "type": "hexadecimal",
           "named": true
         },
@@ -1771,6 +1775,10 @@
   },
   {
     "type": "binary",
+    "named": true
+  },
+  {
+    "type": "duration",
     "named": true
   },
   {

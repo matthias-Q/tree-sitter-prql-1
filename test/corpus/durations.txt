@@ -1,0 +1,361 @@
+================================================================================
+Duration - days
+================================================================================
+
+from events
+derive future_date = start + 10days
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - years
+================================================================================
+
+from contracts
+derive expiry = created_at + 2years
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - minutes
+================================================================================
+
+from sessions
+derive timeout = start_time + 30minutes
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - hours
+================================================================================
+
+from shifts
+derive end_time = start_time + 8hours
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - seconds
+================================================================================
+
+from measurements
+derive delayed = timestamp + 500seconds
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - weeks
+================================================================================
+
+from projects
+derive deadline = start_date + 4weeks
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - months
+================================================================================
+
+from subscriptions
+derive renewal = start_date + 12months
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - quarters
+================================================================================
+
+from reports
+derive next_quarter = report_date + 1quarters
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - milliseconds
+================================================================================
+
+from logs
+derive adjusted_time = event_time + 250milliseconds
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - microseconds
+================================================================================
+
+from precision_data
+derive offset_time = timestamp + 1000microseconds
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - singular forms
+================================================================================
+
+from data
+derive {
+  one_day = date + 1day,
+  one_hour = time + 1hour,
+  one_minute = time + 1minute,
+  one_second = time + 1second
+}
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (field
+                (identifier))
+              (literal
+                (duration)))))))))
+
+================================================================================
+Duration - complex expression
+================================================================================
+
+from events
+derive duration_calc = start_date + 2weeks - 3days + 12hours
+
+--------------------------------------------------------------------------------
+
+(program
+  (pipeline
+    (from
+      (keyword_from)
+      (identifier))
+    (transforms
+      (derives
+        (keyword_derive)
+        (term
+          (assignment
+            (field
+              (identifier))
+            (binary_expression
+              (binary_expression
+                (field
+                  (identifier))
+                (literal
+                  (duration)))
+              (binary_expression
+                (literal
+                  (duration))
+                (literal
+                  (duration))))))))))
